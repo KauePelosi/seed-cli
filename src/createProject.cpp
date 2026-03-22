@@ -1,6 +1,7 @@
 #include "../include/createProject.hpp"
 #include <filesystem>
 #include <fstream>
+#include <iostream>
 #include <string>
 
 void createProject(const std::string &projectName) {
@@ -25,5 +26,18 @@ void createProject(const std::string &projectName) {
   }
   if (!exists(bin)) {
     create_directory(bin);
+  }
+  std::filesystem::path main = src / "main.cpp";
+  std::ofstream file(main);
+
+  if (file.is_open()) {
+    file << "#include <iostream>\n";
+    file << "int main() {\n";
+    file << "  std::cout << \"Hello World!\";";
+    file << "\n  return 0;";
+    file << "\n}";
+
+  } else {
+    std::cerr << "Failed to create file: " << main << "\n";
   }
 }
