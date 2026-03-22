@@ -1,0 +1,15 @@
+{
+  "project_structure": [
+    "bin",
+    "build",
+    "include",
+    "src",
+    "docs",
+    "tests"
+  ],
+  "project_files": [
+    "src/main.cpp",
+    "CMakeList.txt",
+    ".gitignore"
+  ]
+}
