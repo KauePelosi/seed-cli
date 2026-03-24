@@ -25,5 +25,5 @@ void generateFromTemplate(const std::string &projectLanguage,
         << projectLanguage << "\n";
   }
   nlohmann::json templateData = nlohmann::json::parse(file);
-  createDirectories(templateData);
+  createDirectories(templateData, projectName);
 }
