@@ -1,9 +1,8 @@
-#include "../include/createProject.hpp"
-#include "../include/userInput.hpp"
-#include <string>
+#include "../include/generateFromTemplate.hpp"
+#include "../include/getUserInput.hpp"
 
 int main(int agrc, char *agrv[]) {
-  std::string projectName = userInput(agrc, agrv);
-  createProject(projectName);
+  auto [projectLanguage, projectName] = getUserInput(agrc, agrv);
+  generateFromTemplate(projectLanguage, projectName);
   return 0;
 }

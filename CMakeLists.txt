@@ -8,6 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(seed
   src/main.cpp
-  src/utils/createProject.cpp
-  src/core/userInput.cpp
+  src/core/generateFromTemplate.cpp
+  src/core/getUserInput.cpp
+  src/utils/createDirectories.cpp
 )
