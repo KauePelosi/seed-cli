@@ -4,4 +4,5 @@
 #include <string>
 
 void createProject(const nlohmann::json &templateData,
-                   const std::string &projectName);
+                   const std::string &projectName,
+                   const std::string &projectLanguage);

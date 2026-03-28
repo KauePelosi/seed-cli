@@ -5,10 +5,11 @@
 #include <nlohmann/json.hpp>
 
 void createProject(const nlohmann::json &templateData,
-                   const std::string &projectName) {
+                   const std::string &projectName,
+                   const std::string &projectLanguage) {
 
   std::filesystem::path projectDirectory = projectName;
-
+  bool success = true;
   try {
     std::filesystem::create_directories(projectDirectory);
   } catch (std::filesystem::filesystem_error &e) {
@@ -28,12 +29,14 @@ void createProject(const nlohmann::json &templateData,
           projectDirectory / file.get<std::string>();
 
       std::ofstream ofs(fullFilesPath);
-      if (ofs.is_open()) {
-        ofs << "// Arquivo gerado automaticamente\n";
-        ofs.close();
-      } else {
-        std::cerr << "Erro ao criar os arquivos: " << fullFilesPath << "\n";
+      if (!ofs) {
+        std::cerr << "error: could not create files: " << fullFilesPath << "\n";
+        success = false;
       }
     }
+  }
+  if (success) {
+    std::cout << "Project created successfully for language " << projectLanguage
+              << ".\n";
   }
 }
