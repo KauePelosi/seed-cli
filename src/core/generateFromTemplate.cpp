@@ -1,6 +1,5 @@
 #include "../../include/generateFromTemplate.hpp"
-#include "../../include/createDirectories.hpp"
-#include "../../include/createFiles.hpp"
+#include "../../include/createProject.hpp"
 #include <filesystem>
 #include <fstream>
 #include <iostream>
@@ -26,6 +25,5 @@ void generateFromTemplate(const std::string &projectLanguage,
         << projectLanguage << "\n";
   }
   nlohmann::json templateData = nlohmann::json::parse(file);
-  createDirectories(templateData, projectName);
-  createFiles(templateData, projectName);
+  createProject(templateData, projectName);
 }

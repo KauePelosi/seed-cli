@@ -10,6 +10,7 @@
   "project_files": [
     "src/main.cpp",
     "CMakeList.txt",
-    ".gitignore"
+    ".gitignore",
+    "LICENSE"
   ]
 }
