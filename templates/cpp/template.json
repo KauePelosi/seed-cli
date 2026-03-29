@@ -10,13 +10,15 @@
   "project_files": [
     {
       "path": "src/main.cpp",
-      "template": "main.cpp.tpl"
+      "template": "templates/cpp/content/main.cpp.tpl"
     },
     {
-      "path": "CMakeLists.txt"
+      "path": "CMakeLists.txt",
+      "template": "templates/cpp/content/CMakeLists.txt.tpl"
     },
     {
-      "path": ".gitignore"
+      "path": ".gitignore",
+      "template": "templates/cpp/content/.gitignore.tpl"
     },
     {
       "path": "README.md"

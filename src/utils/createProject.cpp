@@ -23,15 +23,29 @@ void createProject(const nlohmann::json &templateData,
       std::filesystem::create_directories(fullDirectoryPath);
     }
   }
+
   if (templateData.contains("project_files")) {
     for (const auto &file : templateData["project_files"]) {
-      std::filesystem::path fullFilesPath =
-          projectDirectory / file.get<std::string>();
+      std::filesystem::path filePath =
+          projectDirectory / file["path"].get<std::string>();
 
-      std::ofstream ofs(fullFilesPath);
-      if (!ofs) {
-        std::cerr << "Error: could not create file: " << fullFilesPath << ".\n";
+      std::filesystem::create_directories(filePath.parent_path());
+      std::ofstream outFile(filePath);
+      if (!outFile) {
+        std::cerr << "Error: could not create file " << filePath << ".\n";
         success = false;
+        continue;
+      }
+
+      if (file.contains("template")) {
+        std::ifstream templateFile(file["template"].get<std::string>());
+        if (templateFile) {
+          outFile << templateFile.rdbuf();
+        } else {
+          std::cerr << "Error: could not read template " << file["template"]
+                    << ".\n";
+          success = false;
+        }
       }
     }
   }
