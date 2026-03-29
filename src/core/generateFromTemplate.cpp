@@ -14,15 +14,14 @@ void generateFromTemplate(const std::string &projectLanguage,
                                        "templates" / projectLanguage /
                                        "template.json";
   if (!std::filesystem::exists(templatePath)) {
-    std::cerr << "error: template file to language " << projectLanguage
-              << " was not found\n";
+    std::cerr << "Error: template file for language" << projectLanguage
+              << " was not found.\n";
     exit(1);
   }
   std::ifstream file(templatePath);
   if (!file.is_open()) {
-    std::cerr
-        << "error: was not possible to open the template file to language "
-        << projectLanguage << "\n";
+    std::cerr << "Error: could not open the template file for language "
+              << projectLanguage << ".\n";
   }
   nlohmann::json templateData = nlohmann::json::parse(file);
   createProject(templateData, projectName, projectLanguage);

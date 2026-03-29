@@ -10,5 +10,5 @@ add_executable(seed
   src/main.cpp
   src/core/generateFromTemplate.cpp
   src/core/getUserInput.cpp
-  src/utils/createDirectories.cpp
+  src/utils/createProject.cpp
 )

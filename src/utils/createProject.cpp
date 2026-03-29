@@ -13,7 +13,7 @@ void createProject(const nlohmann::json &templateData,
   try {
     std::filesystem::create_directories(projectDirectory);
   } catch (std::filesystem::filesystem_error &e) {
-    std::cerr << "error: " << e.what() << "\n";
+    std::cerr << "Error: filesystem error " << e.what() << "\n";
   }
 
   if (templateData.contains("project_structure")) {
@@ -30,13 +30,13 @@ void createProject(const nlohmann::json &templateData,
 
       std::ofstream ofs(fullFilesPath);
       if (!ofs) {
-        std::cerr << "error: could not create files: " << fullFilesPath << "\n";
+        std::cerr << "Error: could not create file: " << fullFilesPath << ".\n";
         success = false;
       }
     }
   }
   if (success) {
-    std::cout << "Project created successfully for language " << projectLanguage
-              << ".\n";
+    std::cout << "Project " << projectName << " created successfully " << "("
+              << projectLanguage << ")" << ".\n";
   }
 }

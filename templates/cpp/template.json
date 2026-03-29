@@ -9,7 +9,7 @@
   ],
   "project_files": [
     "src/main.cpp",
-    "CMakeList.txt",
+    "CMakeLists.txt",
     ".gitignore",
     "LICENSE"
   ]
