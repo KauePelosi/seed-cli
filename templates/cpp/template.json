@@ -8,9 +8,18 @@
     "tests"
   ],
   "project_files": [
-    "src/main.cpp",
-    "CMakeLists.txt",
-    ".gitignore",
-    "LICENSE"
+    {
+      "path": "src/main.cpp",
+      "template": "main.cpp.tpl"
+    },
+    {
+      "path": "CMakeLists.txt"
+    },
+    {
+      "path": ".gitignore"
+    },
+    {
+      "path": "CMakeLists.txt"
+    }
   ]
 }
